@@ -21,7 +21,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
     width: 100%;
     margin-bottom: 20px;
-    
+
     @media (min-width: 769px) {
       align-items: flex-end;
     }
@@ -95,7 +95,7 @@ const FormInput = styled.input`
   }
 
   &::placeholder {
-    color: ${color.primary}
+    color: ${color.primary};
   }
 `
 
@@ -124,90 +124,76 @@ const FormTextarea = styled.textarea`
   }
 
   &::placeholder {
-    color: ${color.primary}
+    color: ${color.primary};
   }
 `
 
 const Form = () => {
   return (
     <Wrapper>
-      <Text size="20" interline="30" mb="20">Skontaktuj się z nami przy pomocy poniższego formularza.</Text>
+      <Text size="20" interline="30" mb="20">
+        Skontaktuj się z nami przy pomocy poniższego formularza.
+      </Text>
       <form
-        name="Contact"
+        name="contact"
         method="post"
         netlify-honeypot="bot-field"
         data-netlify="true"
       >
         <input type="hidden" name="bot-field" />
         <Flexbox>
-          {/* <VisibilitySensor partialVisibility once>
-            {({ isVisible }) => ( */}
-              <label
-                className={
-                  // isVisible ? "slideUp enter from-label" : "slideUp from-label"
-                  "form-label"
-                }
-                htmlFor="fname"
-              >
-                <p style={{display: "none"}}>Imię</p>
-                <FormInput id="fname" type="text" name="fname" placeholder="Imię" required />
-              </label>
-            {/* )}
-          </VisibilitySensor>
-          <VisibilitySensor partialVisibility once>
-            {({ isVisible }) => ( */}
-              <label
-                className={
-                  // isVisible ? "slideUp enter from-label" : "slideUp from-label"
-                  "form-label"
-                }
-                htmlFor="lname"
-              >
-                <p style={{display: "none"}}>Nazwisko</p>
-                <FormInput id="lname" type="text" name="lname" placeholder="Nazwisko" required />
-              </label>
-            {/* )}
-          </VisibilitySensor> */}
+          <label className={"form-label"} htmlFor="fname">
+            <p style={{ display: "none" }}>Imię</p>
+            <FormInput
+              id="fname"
+              type="text"
+              name="fname"
+              placeholder="Imię"
+              required
+            />
+          </label>
+          <label className={"form-label"} htmlFor="lname">
+            <p style={{ display: "none" }}>Nazwisko</p>
+            <FormInput
+              id="lname"
+              type="text"
+              name="lname"
+              placeholder="Nazwisko"
+              required
+            />
+          </label>
         </Flexbox>
-        {/* <VisibilitySensor partialVisibility once>
-          {({ isVisible }) => ( */}
-            <label
-            className={
-              // isVisible ? "slideUp enter from-label" : "slideUp from-label"
-              "form-label form-label--wide"
-            }
-            htmlFor="email"
-          >
-            <p style={{display: "none"}}>Adres e-mail</p>
-            <FormInput id="email" type="email" name="email" placeholder="Adres e-mail" />
-          </label>
-            <label
-            className={
-              // isVisible ? "slideUp enter from-label" : "slideUp from-label"
-              "form-label form-label--wide"
-            }
-            htmlFor="phone"
-          >
-            <p style={{display: "none"}}>Numer telefonu</p>
-            <FormInput id="phone" type="phone" name="phone" placeholder="Numer telefonu" />
-          </label>
-          {/* )}
-        </VisibilitySensor>
-        <VisibilitySensor partialVisibility once>
-          {({ isVisible }) => ( */}
-            <label
-              className={
-                // isVisible ? "slideUp enter from-label" : "slideUp from-label"
-              "form-label"
-              }
-              htmlFor="message"
-              style={{ position: "relative" }}
-            >
-              <p style={{display: "none"}}>Wiadomość</p>
-              <FormTextarea id="message" type="text" name="message" placeholder="Wiadomość"/>
-            </label>
-          {/* )}
-        </VisibilitySensor> */}
+        <label className={"form-label form-label--wide"} htmlFor="email">
+          <p style={{ display: "none" }}>Adres e-mail</p>
+          <FormInput
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Adres e-mail"
+          />
+        </label>
+        <label className={"form-label form-label--wide"} htmlFor="phone">
+          <p style={{ display: "none" }}>Numer telefonu</p>
+          <FormInput
+            id="phone"
+            type="phone"
+            name="phone"
+            placeholder="Numer telefonu"
+          />
+        </label>
+        <label
+          className={"form-label"}
+          htmlFor="message"
+          style={{ position: "relative" }}
+        >
+          <p style={{ display: "none" }}>Wiadomość</p>
+          <FormTextarea
+            id="message"
+            type="text"
+            name="message"
+            placeholder="Wiadomość"
+          />
+        </label>
         <FormAcceptance />
         <Flexbox2>
           <VisibilitySensor partialVisibility once>
@@ -217,8 +203,7 @@ const Form = () => {
                 type="submit"
                 content={{
                   text: "Wyślij",
-                  url:
-                    "#oferta",
+                  url: "#oferta",
                 }}
                 p="10px 18px"
               />

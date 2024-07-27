@@ -2,25 +2,25 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import Container from "../../partials/container"
-import SectionTitle from "../../atoms/section-title";
+import SectionTitle from "../../atoms/section-title"
 import ContentCenter from "../../partials/content-center"
 import Form from "../../organisms/form"
 import { color } from "../../../components/colors"
 import { FlexBox } from "../../../components/flexbox"
 import Shapes from "../../../images/shapes-3.inline.svg"
-import Icon from "../../atoms/icon";
-import PhoneSVG from "../../../images/phone.inline.svg";
+import Icon from "../../atoms/icon"
+import PhoneSVG from "../../../images/phone.inline.svg"
 
 const Contact = styled.section`
-padding: 48px 0;
-position: relative;
+  padding: 48px 0;
+  position: relative;
 
-@media (min-width: 769px) {
-  padding: 104px 0;
-}
+  @media (min-width: 769px) {
+    padding: 104px 0;
+  }
 `
 
-const Content = styled.div`   
+const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -42,7 +42,7 @@ const Content = styled.div`
 
       picture {
         &::before {
-          content: '';
+          content: "";
           display: block;
           background-color: ${color.white};
           border-radius: 10px;
@@ -61,7 +61,7 @@ const Content = styled.div`
       }
 
       &::before {
-        content: '';
+        content: "";
         display: block;
         height: 94px;
         width: 70%;
@@ -89,14 +89,15 @@ const Box = styled.div`
   z-index: 1;
   padding: 20px;
   margin-bottom: 48px;
-  
+
   @media (min-width: 769px) {
     position: absolute;
     width: auto;
     margin-bottom: 0;
   }
 
-  span, a {
+  span,
+  a {
     display: flex;
     color: ${color.white};
   }
@@ -124,7 +125,7 @@ const Box = styled.div`
       fill: ${color.white};
     }
   }
-`;
+`
 
 const ShapesBackground = styled.div`
   position: absolute;
@@ -133,33 +134,58 @@ const ShapesBackground = styled.div`
   right: 0;
   transform: translateY(-50%);
   overflow: hidden;
-  opacity: .3;
+  opacity: 0.3;
   z-index: -1;
-`;
+`
 
 const ContactSection = ({ className, data }) => (
   <Contact id="kontakt" className={className}>
     <Container>
       <Content>
-        <FlexBox className="content-left" width="100%" widthMD="49.6%" pr="0" prMD="123">
-          <div style={{position: "relative", width: "100%"}}>
+        <FlexBox
+          className="content-left"
+          width="100%"
+          widthMD="49.6%"
+          pr="0"
+          prMD="123"
+        >
+          <div style={{ position: "relative", width: "100%" }}>
             <Img fixed={data.kontaktZdjecie.localFile.childImageSharp.fluid} />
             <Box>
               <span>Rejestracja telefoniczna</span>
-              <a href="tel:48914045888" style={{display: "flex", alignItems: "center", marginBottom: "10px"}}>
-                <Icon icon={<PhoneSVG />} size="20" mr="10" />+ 48 91  404 58 88
+              <a
+                href="tel:48914045888"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginBottom: "10px",
+                }}
+              >
+                <Icon icon={<PhoneSVG />} size="20" mr="10" />+ 48 91 404 58 88
               </a>
-              <a href="tel:724100548" style={{display: "flex", alignItems: "center"}}>
-                <Icon icon={<PhoneSVG />} size="20" mr="10" />
-                + 48 724 100 548
+              <a
+                href="tel:724100548"
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                <Icon icon={<PhoneSVG />} size="20" mr="10" />+ 48 724 100 548
               </a>
             </Box>
           </div>
         </FlexBox>
-        <FlexBox className="content-right" direction="column" width="100%" widthMD="50.4%">
-          <SectionTitle title="FORMULARZ KONTAKTOWY" mr="auto" mb="28" underline />
+        <FlexBox
+          className="content-right"
+          direction="column"
+          width="100%"
+          widthMD="50.4%"
+        >
+          <SectionTitle
+            title="FORMULARZ KONTAKTOWY"
+            mr="auto"
+            mb="28"
+            underline
+          />
           <Form />
-          </FlexBox>
+        </FlexBox>
       </Content>
     </Container>
     <ShapesBackground>
