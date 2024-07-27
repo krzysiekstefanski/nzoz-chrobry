@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { navigate } from "gatsby"
 import styled from "styled-components"
 import { color } from "../../components/colors"
@@ -164,9 +164,9 @@ const FormButton = styled.button`
 
 const Form = () => {
   const [formState, setFormState] = useState({
-    name: "",
-    surname: "",
-    mail: "",
+    fname: "",
+    lname: "",
+    email: "",
     phone: "",
     message: "",
   })
@@ -193,6 +193,10 @@ const Form = () => {
     e.preventDefault()
   }
 
+  useEffect(() => {
+    console.log(formState)
+  }, [formState])
+
   return (
     <Wrapper>
       <Text size="20" interline="30" mb="20">
@@ -215,7 +219,7 @@ const Form = () => {
               name="fname"
               placeholder="Imię"
               onChange={handleChange}
-              value={formState.name}
+              value={formState.fname}
               required
             />
           </label>
@@ -227,7 +231,7 @@ const Form = () => {
               name="lname"
               placeholder="Nazwisko"
               onChange={handleChange}
-              value={formState.surname}
+              value={formState.lname}
               required
             />
           </label>
@@ -240,7 +244,7 @@ const Form = () => {
             name="email"
             placeholder="Adres e-mail"
             onChange={handleChange}
-            value={formState.mail}
+            value={formState.email}
           />
         </label>
         <label className={"form-label form-label--wide"} htmlFor="phone">
