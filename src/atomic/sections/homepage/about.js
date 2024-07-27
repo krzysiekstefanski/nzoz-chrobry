@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import React from "react"
+import styled from "styled-components"
 import Img from "gatsby-image"
-import { StaticImage } from "gatsby-plugin-image";
-import Container from "../../partials/container";
+import { StaticImage } from "gatsby-plugin-image"
+import Container from "../../partials/container"
 import { color } from "../../../components/colors"
 import { FlexBox } from "../../../components/flexbox"
-import SectionTitle from "../../atoms/section-title";
-import Text from "../../atoms/text";
+import SectionTitle from "../../atoms/section-title"
+import Text from "../../atoms/text"
 import Button from "../../atoms/button"
 import parse from "html-react-parser"
 import Shapes from "../../../images/shapes-1.inline.svg"
@@ -29,12 +29,12 @@ const ShapesBackground = styled.div`
   right: 0;
   transform: translateY(-50%);
   overflow: hidden;
-  opacity: .3;
+  opacity: 0.3;
   z-index: -1;
-`;
+`
 
 const Content = styled.div`
-  display: flex;  
+  display: flex;
   flex-direction: column;
   width: 100%;
 
@@ -54,7 +54,7 @@ const Content = styled.div`
 
       picture {
         &::before {
-          content: '';
+          content: "";
           display: block;
           background-color: ${color.white};
           border-radius: 10px;
@@ -74,7 +74,7 @@ const Content = styled.div`
       }
 
       &::before {
-        content: '';
+        content: "";
         display: block;
         height: 94px;
         width: 70%;
@@ -88,7 +88,7 @@ const Content = styled.div`
       }
 
       &::after {
-        content: '';
+        content: "";
         display: block;
         height: 94px;
         width: 70%;
@@ -105,21 +105,26 @@ const Content = styled.div`
 `
 
 const HomepageAboutSection = ({ data }) => (
-<About id="o-nas">
-  <ShapesBackground>
-    <Shapes />
-  </ShapesBackground>
-  <Container>
-    <Content>
-      <FlexBox className="content-left" width="100%" widthMD="49.6%" pr="123">
-        <Img fixed={data.oNasZdjecie.localFile.childImageSharp.fluid} />
-      </FlexBox>
-      <FlexBox className="content-right" direction="column" width="100%" widthMD="50.4%">
-        <SectionTitle title={data.oNasTytul} mr="auto" mb="28" underline />
-        <Text text={data.oNasTekst} size="20" interline="30" />
-      </FlexBox>
-    </Content>
-  </Container>
-</About>
+  <About id="o-nas">
+    <ShapesBackground>
+      <Shapes />
+    </ShapesBackground>
+    <Container>
+      <Content>
+        <FlexBox className="content-left" width="100%" widthMD="49.6%" pr="123">
+          <Img fixed={data.oNasZdjecie.localFile.childImageSharp.fluid} />
+        </FlexBox>
+        <FlexBox
+          className="content-right"
+          direction="column"
+          width="100%"
+          widthMD="50.4%"
+        >
+          <SectionTitle title={data.oNasTytul} mr="auto" mb="28" underline />
+          <Text text={data.oNasTekst} size="20" interline="30" />
+        </FlexBox>
+      </Content>
+    </Container>
+  </About>
 )
 export default HomepageAboutSection

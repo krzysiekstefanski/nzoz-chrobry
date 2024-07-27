@@ -172,6 +172,7 @@ const Form = () => {
         method="post"
         netlify-honeypot="bot-field"
         data-netlify="true"
+        action="/thank-you"
       >
         <input type="hidden" name="bot-field" />
         <Flexbox>

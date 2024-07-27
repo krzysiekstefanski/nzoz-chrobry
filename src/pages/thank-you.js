@@ -57,8 +57,11 @@ const NotFoundPage = () => (
     <Seo title="404: Nie znaleziono" />
     <Content>
       <Container style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-        <Title title={"404"} align="center" />
-        <Title title={"Strony nie znaleziono"} align="center" />
+        <Title title={"Dziękujemy"} align="center" />
+        <Title
+          title={"Twoja wiadomość została do nas wysłana"}
+          align="center"
+        />
         <Text
           text={"Możesz wrócić na stronę główną klikając przycisk poniżej"}
           center
