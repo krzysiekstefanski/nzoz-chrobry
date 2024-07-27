@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useState } from "react"
+import { navigate } from "gatsby"
 import styled from "styled-components"
 import { color } from "../../components/colors"
 import FormAcceptance from "../molecules/form-acceptance"
@@ -162,6 +163,36 @@ const FormButton = styled.button`
 `
 
 const Form = () => {
+  const [formState, setFormState] = useState({
+    name: "",
+    surname: "",
+    mail: "",
+    phone: "",
+    message: "",
+  })
+
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
+
+  const handleChange = e => {
+    setFormState({ ...formState, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = e => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...formState }),
+    })
+      .then(() => navigate("/thank-you"))
+      .catch(error => alert(error))
+
+    e.preventDefault()
+  }
+
   return (
     <Wrapper>
       <Text size="20" interline="30" mb="20">
@@ -172,7 +203,7 @@ const Form = () => {
         method="post"
         netlify-honeypot="bot-field"
         data-netlify="true"
-        action="/thank-you"
+        onSubmit={handleSubmit}
       >
         <input type="hidden" name="bot-field" />
         <Flexbox>
@@ -183,6 +214,8 @@ const Form = () => {
               type="text"
               name="fname"
               placeholder="Imię"
+              onChange={handleChange}
+              value={formState.name}
               required
             />
           </label>
@@ -193,6 +226,8 @@ const Form = () => {
               type="text"
               name="lname"
               placeholder="Nazwisko"
+              onChange={handleChange}
+              value={formState.surname}
               required
             />
           </label>
@@ -204,6 +239,8 @@ const Form = () => {
             type="email"
             name="email"
             placeholder="Adres e-mail"
+            onChange={handleChange}
+            value={formState.mail}
           />
         </label>
         <label className={"form-label form-label--wide"} htmlFor="phone">
@@ -213,6 +250,8 @@ const Form = () => {
             type="phone"
             name="phone"
             placeholder="Numer telefonu"
+            onChange={handleChange}
+            value={formState.phone}
           />
         </label>
         <label
@@ -226,6 +265,8 @@ const Form = () => {
             type="text"
             name="message"
             placeholder="Wiadomość"
+            onChange={handleChange}
+            value={formState.message}
           />
         </label>
         <FormAcceptance />
