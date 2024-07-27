@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { color } from "../../components/colors"
 import FormAcceptance from "../molecules/form-acceptance"
-import FormButton from "../atoms/button"
 import VisibilitySensor from "../../components/VisibilitySensor"
 import Text from "../atoms/text"
 
@@ -128,6 +127,40 @@ const FormTextarea = styled.textarea`
   }
 `
 
+const FormButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  background-color: ${color.secondary};
+  border: 2px solid ${color.secondary};
+  border-radius: 10px;
+  color: ${color.white};
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease 0s, color 0.3s ease 0s,
+    border-color 0.3s ease 0s;
+
+  &:hover {
+    background-color: ${color.white};
+    border-color: ${color.secondary};
+    color: ${color.secondary};
+  }
+
+  @media (min-width: 576px) {
+    width: auto;
+    white-space: nowrap;
+  }
+`
+
 const Form = () => {
   return (
     <Wrapper>
@@ -201,12 +234,9 @@ const Form = () => {
               <FormButton
                 className={isVisible ? "slideUp enter" : "slideUp"}
                 type="submit"
-                content={{
-                  text: "Wyślij",
-                  url: "#oferta",
-                }}
-                p="10px 18px"
-              />
+              >
+                Wyślij
+              </FormButton>
             )}
           </VisibilitySensor>
         </Flexbox2>
